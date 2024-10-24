@@ -1,5 +1,6 @@
 package use_case.logout;
 
+import entity.User;
 import use_case.login.LoginOutputData;
 
 /**
@@ -26,8 +27,7 @@ public class LogoutInteractor implements LogoutInputBoundary {
         // * tell the presenter to prepare a success view.
         final String username = logoutInputData.getUsername();
         userDataAccessObject.setCurrentUsername(null);
-        final LogoutOutputData logoutOutputData = new LogoutOutputData(username, false);
+        final LogoutOutputData logoutOutputData = new LogoutOutputData(username, true);
         logoutPresenter.prepareSuccessView(logoutOutputData);
     }
 }
-
